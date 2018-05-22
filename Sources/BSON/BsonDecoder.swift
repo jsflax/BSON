@@ -222,7 +222,7 @@ private struct _BsonKeyedDecodingContainer<K: CodingKey> : KeyedDecodingContaine
 
     /// All the keys the decoder has for this container.
     public var allKeys: [Key] {
-        return self.container.keys.compactMap { Key(stringValue: $0) }
+        return self.container.keys.flatMap { Key(stringValue: $0) }
     }
 
     /// Returns a Boolean value indicating whether the decoder contains a value associated with the given key.
